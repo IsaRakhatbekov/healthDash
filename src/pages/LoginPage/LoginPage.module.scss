@@ -1,0 +1,26 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    width: 50%;
+    height: 70%;
+    background-color: #ccc;
+    padding: 40px;
+    border-radius: 20px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
