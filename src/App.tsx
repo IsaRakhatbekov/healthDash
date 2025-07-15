@@ -1,18 +1,24 @@
-import { useState } from "react";
-import Header from "./components/Header/Header";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import { AuthProvider } from "./context/AuthContext";
+import Layout from "./components/Layout/Layout";
+import AuthPage from "./pages/AuthPage/AuthPage";
 
 function App() {
-  const [authMode, setAuthMode] = useState<"login" | "register" | null>(null);
-
   return (
-    <div className="App">
-      <Header onSelect={setAuthMode} />
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/dashboard" element={<DashboardPage />} />
+            {/* можно добавить другие защищённые страницы */}
+          </Route>
 
-      {authMode === "login" && <LoginPage />}
-      {authMode === "regis" && <RegisterPage />}
-    </div>
+          {/* вне layout — например, страница логина и регистрации */}
+          <Route path="/" element={<AuthPage />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

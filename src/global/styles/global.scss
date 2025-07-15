@@ -1,14 +1,57 @@
-@import "reset.scss";
+@use "reset.scss";
+
+:root {
+  --dark-color: #23242c;
+  --dark-blue-color: #1e1f27;
+  --purple-color: #9282fa;
+  --white-color: #fff;
+  --inp-bg: #37383f;
+}
 
 body {
   font-family: sans-serif;
   font-size: 18px;
   line-height: 1.3em;
   font-weight: 400;
+  background-color: var(--dark-color);
 }
 
 .container {
   padding: 0;
   margin: 0 auto;
   max-width: 1200px;
+}
+
+.label {
+  font-size: 18px;
+  line-height: 1.3em;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--white-color);
+}
+
+.input {
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 8px;
+  line-height: 1.3em;
+  width: 100%;
+  padding: 10px 15px;
+  color: var(--white-color);
+  background-color: var(--inp-bg);
+}
+
+button {
+  border: none;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3em;
+  border-radius: 8px;
+  color: var(--white-color);
+  background-color: rgba(140, 124, 250);
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: rgba(124, 105, 249);
+  }
 }

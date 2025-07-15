@@ -1,0 +1,21 @@
+.login {
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .submitBtn {
+    padding: 10px;
+    text-transform: uppercase;
+  }
+  .regisBtn {
+    padding: 10px;
+    text-transform: uppercase;
+    color: var(--white-color);
+    text-transform: lowercase;
+    text-decoration: underline;
+    text-align-last: left;
+  }
+}

@@ -1,0 +1,16 @@
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.contentArea {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.main {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
