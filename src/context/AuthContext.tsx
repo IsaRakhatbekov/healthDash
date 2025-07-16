@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext, type ReactNode } from "react";
+import React, { useState, useContext, type ReactNode, useEffect } from "react";
+import Loader from "../components/Loader/Loader";
 
 type AuthUser = {
   Name: String;
@@ -30,6 +31,7 @@ export function useAuth() {
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [authUser, setAuthUser] = useState<AuthUser>(null);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const login = async (email: string, password: string) => {
     const res = await fetch("http://localhost:3001/login", {
@@ -50,6 +52,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      setIsLoggedIn(true);
+      setAuthUser({ Name: "User from localStorage" });
+    }
+
+    // Проверка закончилась
+    setLoading(false);
+  }, []);
+
   const logout = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
@@ -64,6 +78,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     login,
     logout,
   };
+
+  if (loading) return <Loader />;
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

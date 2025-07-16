@@ -8,12 +8,15 @@ const Header = () => {
 
   const handleLogOut = () => {
     logout();
-    navigate("/login");
+    navigate("/");
   };
   return (
     <header className={styles.header}>
       <div className={`${styles.container} container`}>
         <nav className={styles.nav}>
+          <div className={styles.searchWrapper}>
+            <input type="text" />
+          </div>
           <button className={styles.link} onClick={handleLogOut}>
             Выйти
           </button>

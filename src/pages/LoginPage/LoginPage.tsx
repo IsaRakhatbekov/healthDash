@@ -19,7 +19,6 @@ const LoginPage = ({ onSwitch }: Props) => {
     const res = await login(data.myGmail as string, data.myPass as string);
 
     if (res.success) {
-      alert("✅ Login successful!");
       navigate("/dashboard");
     } else {
       alert("❌ Error: " + res.message);

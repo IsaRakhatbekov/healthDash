@@ -1,0 +1,21 @@
+.error {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 1.3em;
+
+  .goHomeBtn {
+    font-weight: 700;
+    font-size: 30px;
+    padding: 10px 30px;
+    line-height: 1.3em;
+    text-transform: lowercase;
+  }
+}

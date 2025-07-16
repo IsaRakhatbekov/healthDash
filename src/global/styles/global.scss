@@ -4,6 +4,7 @@
   --dark-color: #23242c;
   --dark-blue-color: #1e1f27;
   --purple-color: #9282fa;
+  // --white-color: rgb(249 244 218);
   --white-color: #fff;
   --inp-bg: #37383f;
 }
@@ -14,6 +15,7 @@ body {
   line-height: 1.3em;
   font-weight: 400;
   background-color: var(--dark-color);
+  color: var(--white-color);
 }
 
 .container {

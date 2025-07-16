@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./RegisterPage.module.scss";
 
 type Props = {
@@ -5,6 +6,7 @@ type Props = {
 };
 
 const RegisterPage = ({ onSwitch }: Props) => {
+  const navigate = useNavigate();
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
@@ -29,6 +31,7 @@ const RegisterPage = ({ onSwitch }: Props) => {
       if (res.ok) {
         alert("✅ Registration successful!");
         console.log("Server response:", result);
+        navigate("/dashboard");
       } else {
         alert("❌ Error: " + result.message);
       }

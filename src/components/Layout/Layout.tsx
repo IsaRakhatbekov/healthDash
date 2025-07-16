@@ -6,13 +6,16 @@ import styles from "./Layout.module.scss";
 const Layout = () => {
   return (
     <div className={styles.layout}>
-      <Aside />
-      <div className={styles.contentArea}>
-        <Header />
-        <main className={styles.main}>
-          <Outlet />
-        </main>
+      {/* Обёртка для Aside с возможностью ресайза */}
+      <div className={styles.aside}>
+        <Aside />
       </div>
+      <div className={styles.header}>
+        <Header />
+      </div>
+      <main className={styles.main}>
+        <Outlet />
+      </main>
     </div>
   );
 };
