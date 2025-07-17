@@ -1,22 +1,53 @@
 .header {
-  background-color: var(--dark-blue-color);
+  padding: 15px 10px;
 
   .nav {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
 
-  .link {
+  .searchWrapper {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: var(--white-color);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .searchInput {
+    width: 250px;
+    height: 100%;
+    padding: 5px 5px 5px 10px;
+    border: none;
+    outline: none;
+  }
+
+  .searchLabel {
+    display: inline-block;
+    width: 40px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    & svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--dark-color);
+    }
+  }
+
+  .logoutBtn {
+    border-radius: 8px;
     text-transform: uppercase;
     font-weight: 600;
-    padding: 25px 40px;
     transition: all 0.6s ease-in-out;
     color: var(--white-color);
-
-    &:hover {
-      color: #282727;
-      background-color: #ccc;
-    }
+    text-transform: lowercase;
+    padding: 10px 15px;
+    font-weight: 300;
   }
 }

@@ -3,7 +3,7 @@ import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import { AuthProvider } from "./context/AuthContext";
 import Layout from "./components/Layout/Layout";
 import AuthPage from "./pages/AuthPage/AuthPage";
-import ProtectedRoute from "./routes/ProtectedRoute";
+import ProtectedRoute from "./routes/ProtectedRoute.tsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {

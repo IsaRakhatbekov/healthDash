@@ -6,7 +6,6 @@ import styles from "./Layout.module.scss";
 const Layout = () => {
   return (
     <div className={styles.layout}>
-      {/* Обёртка для Aside с возможностью ресайза */}
       <div className={styles.aside}>
         <Aside />
       </div>
