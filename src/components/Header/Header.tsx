@@ -12,8 +12,8 @@ const Header = () => {
   };
   return (
     <header className={styles.header}>
-      <div className={`${styles.container} container`}>
-        <nav className={styles.nav}>
+      <nav className={styles.nav}>
+        <div className={styles.wrapper}>
           <div className={`${styles.searchWrapper}`}>
             <input className={styles.searchInput} type="text" id="search" />
             <label className={styles.searchLabel} htmlFor="search">
@@ -34,11 +34,14 @@ const Header = () => {
               </svg>
             </label>
           </div>
-          <button className={styles.logoutBtn} onClick={handleLogOut}>
-            Выйти
+          <button className={styles.btn} onClick={() => navigate("/dashboard")}>
+            Home
           </button>
-        </nav>
-      </div>
+        </div>
+        <button className={styles.btn} onClick={handleLogOut}>
+          Выйти
+        </button>
+      </nav>
     </header>
   );
 };
