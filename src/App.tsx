@@ -15,7 +15,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route element={<Layout />}>
               <Route path="/dashboard" element={<DashboardPage />} />
-              <Route path="/generalHealth" element={<GeneralHealth />} />
+              <Route path="/generalHealth" element={<GeneralHealth />} />2
             </Route>
           </Route>
 
