@@ -55,5 +55,18 @@
     text-transform: lowercase;
     padding: 10px 15px;
     font-weight: 300;
+
+    border: none;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3em;
+    border-radius: 8px;
+    color: var(--white-color);
+    background-color: rgba(140, 124, 250);
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: rgba(124, 105, 249);
+    }
   }
 }

@@ -10,6 +10,24 @@ const Header = () => {
     logout();
     navigate("/");
   };
+
+  const handleDeleteAnAccount = async () => {
+    const token = localStorage.getItem("token");
+    const res = await fetch("http://localhost:3001/user", {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (res.ok) {
+      logout(); // очищает токен
+      navigate("/"); // уводит на главную
+    } else {
+      console.error("Failed to delete account");
+    }
+  };
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -37,6 +55,7 @@ const Header = () => {
           <button className={styles.btn} onClick={() => navigate("/dashboard")}>
             Home
           </button>
+          <button onClick={handleDeleteAnAccount}>delete an account</button>
         </div>
         <button className={styles.btn} onClick={handleLogOut}>
           Выйти

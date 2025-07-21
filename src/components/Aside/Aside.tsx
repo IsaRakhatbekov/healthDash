@@ -1,9 +1,10 @@
+import HealthSections from "../HealthSections/HealthSections";
 import styles from "./Aside.module.scss";
 
 const Aside = () => {
   return (
     <div className={styles.aside}>
-      <div className={`${styles.asideContainer} container`}></div>
+      <HealthSections />
     </div>
   );
 };

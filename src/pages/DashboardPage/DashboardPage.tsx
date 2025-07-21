@@ -1,23 +1,14 @@
-import { useNavigate } from "react-router-dom";
 import styles from "./DashboardPage.module.scss";
+import HealthSections from "../../components/HealthSections/HealthSections";
+import { useLocation } from "react-router-dom";
 
 const DashboardPage = () => {
-  const navigate = useNavigate();
+  const location = useLocation();
 
+  const showAside = location.pathname !== "/dashboard";
   return (
     <div className={styles.main}>
-      <button
-        className={styles.card}
-        onClick={() => navigate("/generalHealth")}
-      >
-        GeneralHealth
-      </button>
-      <button className={styles.card}></button>
-      <button className={styles.card}></button>
-      <button className={styles.card}></button>
-      <button className={styles.card}></button>
-      <button className={styles.card}></button>
-      <button className={styles.card}></button>
+      <HealthSections mode={showAside ? "dashboard" : "aside"} />
     </div>
   );
 };

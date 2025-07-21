@@ -1,0 +1,27 @@
+.healthSections {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dashboard {
+  width: 250px;
+  height: 400px;
+  border-radius: 8px;
+  background-color: #ccc;
+  margin: 20px;
+}
+
+.aside {
+  text-align: left;
+  width: 100%;
+  padding: 25px 10px;
+  color: var(--white-color);
+  background-color: var(--inp-bg);
+  transition: all 0.3s;
+  border-bottom: 1px solid #010101;
+
+  &:hover {
+    background-color: var(--purple-color);
+  }
+}

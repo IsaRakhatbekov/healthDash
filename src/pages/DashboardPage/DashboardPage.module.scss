@@ -1,13 +1,5 @@
 .main {
   gap: 40px;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
   flex-wrap: wrap;
-
-  .card {
-    width: 300px;
-    height: 400px;
-    background-color: var(--inp-bg);
-  }
 }
