@@ -1,0 +1,14 @@
+.calendar {
+  width: 500px;
+  height: 500px;
+  background-color: var(--inp-bg);
+  margin-bottom: 50px;
+
+  .calendarHead {
+    padding: 15px 10px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

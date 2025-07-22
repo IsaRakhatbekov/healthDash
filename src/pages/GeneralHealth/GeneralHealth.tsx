@@ -11,6 +11,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import Calendar from "../../components/Сalendar/Calendar";
 
 const GeneralHealth = () => {
   const [healthData, setHealthData] = useState<any>(null);
@@ -40,13 +41,14 @@ const GeneralHealth = () => {
         ],
       });
       setLoading(false);
-    }, 1000); // загрузка 1 секунда
+    }, 0); // загрузка 1 секунда
   }, []);
 
   if (loading) return <Loader />;
 
   return (
     <div className={styles.generalHealth}>
+      <Calendar />
       {loading ? (
         <Loader />
       ) : (
