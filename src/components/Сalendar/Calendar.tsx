@@ -20,28 +20,47 @@ const Calendar = () => {
   const getDate = new Date();
   const [currentDay, setCurrentDay] = useState(getDate.getDate());
   const [currentMonth, setCurrentMonth] = useState(getDate.getMonth());
+  const [currentYear, setCurrentYear] = useState(getDate.getFullYear());
 
-  const handleChangeMonthFowrad = () => {
-    setCurrentMonth((prev) => prev + 1);
-    if (currentMonth === 13) {
-      setCurrentMonth(11);
-    }
+  // const handleChangeMonthFoward = () => {
+  //   setCurrentMonth((prevMonth) => {
+  //     if (prevMonth === 11) {
+  //       setCurrentYear((prevYear) => prevYear + 1);
+  //       return 0;
+  //     } else {
+  //       return prevMonth + 1;
+  //     }
+  //   });
+  // };
+
+  const handleChangeMonthFoward = () => {
+    setCurrentMonth((prevMonth) => {
+      const newMonth = (prevMonth + 1) % 12;
+      if (prevMonth === 11) {
+        setCurrentYear((prevYear) => prevYear + 1);
+      }
+      return newMonth;
+    });
   };
+
   const handleChangeMonthBack = () => {
-    setCurrentMonth((prev) => prev - 1);
-    if (currentMonth === -1) {
-      setCurrentMonth(0);
-    }
+    setCurrentMonth((prevMonth) => {
+      if (prevMonth === 0) {
+        setCurrentYear((prevYear) => prevYear - 1);
+        return 11;
+      } else {
+        return prevMonth - 1;
+      }
+    });
   };
-
-  console.log(currentMonth);
 
   return (
     <div className={styles.calendar}>
       <div className={styles.calendarHead}>
         <button onClick={handleChangeMonthBack}>left</button>
         <span>{months[currentMonth]}</span>
-        <button onClick={handleChangeMonthFowrad}>right</button>
+        <span>{currentYear}</span>
+        <button onClick={handleChangeMonthFoward}>right</button>
       </div>
       <div className={styles.calendarBody}>
         <span>{currentDay}</span>
