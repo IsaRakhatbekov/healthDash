@@ -2,6 +2,7 @@ import { useState } from "react";
 import FilterInput from "../FilterInput/FilterInput";
 import HealthSections from "../HealthSections/HealthSections";
 import styles from "./Aside.module.scss";
+import Test from "../Test/Test";
 
 const filters = [
   { id: "1", naming: "text1" },
@@ -10,24 +11,27 @@ const filters = [
   { id: "4", naming: "text4" },
 ];
 
-const Aside = ({}) => {
-  const [selectedInput, setSelectedInput] = useState("");
-  const [isInputSelected, setIsInputSelected] = useState(Boolean);
+const Aside = () => {
+  const [selectedInputs, setSelectedInputs] = useState<string[]>([]); // ✅ теперь массив
 
-  const handleSelecInputId = (id: string) => {
-    setSelectedInput(id);
-    console.log(selectedInput);
+  const handleToggleInput = (id: string) => {
+    setSelectedInputs((prev) =>
+      prev.includes(id)
+        ? prev.filter((inputId) => inputId !== id)
+        : [...prev, id]
+    );
   };
 
   return (
     <div className={styles.aside}>
+      <Test />
       {filters.map((filter) => (
         <FilterInput
           key={filter.id}
           id={filter.id}
           naming={filter.naming}
-          onClick={() => handleSelecInputId(filter.id)}
-          isInputSelected={selectedInput === filter.id}
+          onChange={() => handleToggleInput(filter.id)} // ✅ правильно
+          isInputSelected={selectedInputs.includes(filter.id)} // ✅ работает с массивом
         />
       ))}
       <HealthSections />
@@ -36,4 +40,3 @@ const Aside = ({}) => {
 };
 
 export default Aside;
-2;

@@ -1,10 +1,10 @@
-import type { FC } from "react";
+import { useState, type FC } from "react";
 import styles from "./FilterInput.module.scss";
 
 type filtersProps = {
   id: string;
   naming: string;
-  onClick: () => void;
+  onChange: () => void;
   isInputSelected: boolean;
 };
 
@@ -12,18 +12,26 @@ const FilterInput: FC<filtersProps> = ({
   id,
   naming,
   isInputSelected,
-  onClick,
+  onChange,
 }) => {
+  const [test, setTest] = useState(false);
+
   return (
-    <label
-      className={`${styles.label} ${isInputSelected ? styles.active : ""}`}
-      htmlFor={id}
-      onClick={onClick}
-      id={id}
-    >
-      <input className={styles.input} type={"checkbox"} id={id} />
-      <span>{naming}</span>
-    </label>
+    <>
+      <label
+        className={`${styles.label} ${isInputSelected ? styles.active : ""}`}
+        htmlFor={id}
+      >
+        <input
+          id={id}
+          type="checkbox"
+          checked={isInputSelected}
+          onChange={onChange}
+          className={styles.input}
+        />
+        <span>{naming}</span>
+      </label>
+    </>
   );
 };
 
