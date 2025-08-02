@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   border-radius: 8px;
+  overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   // box-shadow: 0 0 15px rgba(146, 130, 250, 0.2), 0 10px 30px rgba(0, 0, 0, 0.6);
 
@@ -23,6 +24,7 @@
     height: 100%;
     background-color: var(--dark-blue);
     position: relative;
+    background: url("../../../public/auth-bg.png") center/cover no-repeat;
 
     &::after {
       content: "";
