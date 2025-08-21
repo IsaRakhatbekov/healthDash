@@ -6,6 +6,8 @@ import AuthPage from "./pages/AuthPage/AuthPage";
 import ProtectedRoute from "./routes/ProtectedRoute.tsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import GeneralHealth from "./pages/GeneralHealth/GeneralHealth.tsx";
+import RegisterPage from "./pages/RegisterPage/RegisterPage.tsx";
+import VerifyPage from "./pages/VerifyPage/VerifyPage.tsx";
 
 function App() {
   return (
@@ -18,10 +20,12 @@ function App() {
               <Route path="/generalHealth" element={<GeneralHealth />} />2
             </Route>
           </Route>
-
           {/* вне layout — например, страница логина и регистрации */}
           <Route path="/" element={<AuthPage />} />
           <Route path="*" element={<NotFoundPage />} />
+          <Route path="regis" element={<RegisterPage />} />
+          {/* import VerifyPage from "./pages/VerifyPage/VerifyPage"; // ... */}
+          <Route path="/verify" element={<VerifyPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

@@ -1,49 +1,107 @@
 .authPage {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--dark-blue-color);
-  width: 60%;
-  height: 80%;
-  display: flex;
-  align-items: center;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  // box-shadow: 0 0 15px rgba(146, 130, 250, 0.2), 0 10px 30px rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  background-color: #c8c8c8;
+  color: #010101;
 
-  background: linear-gradient(
-    to right,
-    var(--purple-color) 50%,
-    var(--dark-blue-color) 50%
-  );
-
-  .left {
-    width: 50%;
-    height: 100%;
-    background-color: var(--dark-blue);
+  .wrapper {
+    padding: 20px;
     position: relative;
-    background: url("../../../public/auth-bg.png") center/cover no-repeat;
-
-    &::after {
-      content: "";
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: rgba(35, 36, 44, 0.5);
-      z-index: -1;
-    }
-  }
-
-  .right {
-    width: 50%;
+    width: 70%;
     height: 100%;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    overflow: hidden;
+  }
+
+  .header {
+    padding: 0 40px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .inner {
+    width: 100%;
+    max-width: 530px;
+  }
+
+  .title {
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 100%;
+    color: #000;
+    margin-bottom: 20px;
+
+    & span {
+      font-weight: 700;
+    }
+  }
+
+  .subTitle {
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 125%;
+    color: #787878;
+    margin-bottom: 40px;
+  }
+
+  .btnWrapper {
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+
+  .roleBtn {
+    position: relative;
+    padding: 12px 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    & span {
+      display: inline-block;
+      position: absolute;
+      width: 9px;
+      height: 18px;
+      top: 14px;
+      right: 15px;
+      overflow: hidden;
+    }
+  }
+
+  .guestBtn {
+    padding: 12px 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    background: #646464;
+    width: 100%;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .bottomText {
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    color: #787878;
   }
 }

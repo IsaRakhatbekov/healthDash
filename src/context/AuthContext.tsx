@@ -1,13 +1,7 @@
 import React, { useState, useContext, type ReactNode, useEffect } from "react";
 import Loader from "../components/Loader/Loader";
 
-type AuthUser = {
-  Name: String;
-} | null;
-
 type AuthContextType = {
-  authUser: AuthUser;
-  setAuthUser: React.Dispatch<React.SetStateAction<AuthUser>>;
   isLoggedIn: boolean;
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   login: (
@@ -15,6 +9,11 @@ type AuthContextType = {
     password: string
   ) => Promise<{ success: boolean; message?: string }>;
   logout: () => void;
+
+  token: string | null;
+  setToken: React.Dispatch<React.SetStateAction<string | null>>;
+  role: string | null;
+  setRole: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
 const AuthContext = React.createContext<AuthContextType | undefined>(undefined);
@@ -29,7 +28,8 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [authUser, setAuthUser] = useState<AuthUser>(null);
+  const [token, setToken] = useState<string | null>(null);
+  const [role, setRole] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -44,8 +44,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     if (res.ok) {
       localStorage.setItem("token", result.token);
+      localStorage.setItem("role", result.role);
+      setToken(result.token);
+      setRole(result.role);
       setIsLoggedIn(true);
-      setAuthUser({ Name: result.name }); // подстрой под свой бэкенд
       return { success: true };
     } else {
       return { success: false, message: result.message };
@@ -53,26 +55,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const storedToken = localStorage.getItem("token");
+    const storedRole = localStorage.getItem("role");
 
-    if (token) {
+    if (storedToken && storedRole) {
+      setToken(storedToken);
+      setRole(storedRole);
       setIsLoggedIn(true);
-      setAuthUser({ Name: "User from localStorage" });
     }
 
-    // Проверка закончилась
     setLoading(false);
   }, []);
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    setToken(null);
+    setRole(null);
     setIsLoggedIn(false);
-    setAuthUser(null);
   };
 
   const value = {
-    authUser,
-    setAuthUser,
+    token,
+    setToken,
+    role,
+    setRole,
     isLoggedIn,
     setIsLoggedIn,
     login,

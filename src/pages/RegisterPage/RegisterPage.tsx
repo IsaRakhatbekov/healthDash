@@ -1,84 +1,128 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import styles from "./RegisterPage.module.scss";
 
-type Props = {
-  onSwitch: () => void;
-};
+const RegisterPage = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    repeatPassword: "",
+  });
 
-const RegisterPage = ({ onSwitch }: Props) => {
-  const navigate = useNavigate();
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
 
-    try {
-      const res = await fetch("http://localhost:3001/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: data.myGmail,
-          password: data.myPass,
-        }),
-      });
+  const handleSubmitReg = () => {
+    let newErrors: { [key: string]: string } = {};
 
-      const result = await res.json();
-
-      if (res.ok) {
-        alert("✅ Registration successful!");
-        console.log("Server response:", result);
-        navigate("/dashboard");
-      } else {
-        alert("❌ Error: " + result.message);
-      }
-    } catch (error) {
-      console.error("❌ Network error:", error);
-      alert("❌ Failed to send request");
+    if (!formData.email) {
+      newErrors.email = "Введите email";
     }
-  }
+
+    if (!formData.password) {
+      newErrors.password = "Введите пароль";
+    }
+
+    if (!formData.repeatPassword) {
+      newErrors.repeatPassword = "Повторите пароль";
+    }
+
+    if (
+      formData.password &&
+      formData.repeatPassword &&
+      formData.password !== formData.repeatPassword
+    ) {
+      newErrors.repeatPassword = "Пароли не совпадают";
+    }
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      console.log("Регистрация с данными:", formData);
+    }
+  };
 
   return (
-    <>
-      <div className={styles.login}>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.wrapper}>
-            <label className={`${styles.label} label`} htmlFor="gmail">
-              Gmail
+    <div className={styles.register}>
+      <div className={styles.inner}>
+        <h1 className={styles.title}>Create your account</h1>
+        <p className={styles.subTitle}>
+          Role selected: <span>Patient</span> / <span>Parent</span>
+        </p>
+        <form className={styles.regisForm}>
+          <div className={styles.inputWrapper}>
+            <label className={styles.label} htmlFor="email">
+              Email <span>We’ll send a verification code to this email*</span>
             </label>
             <input
-              className={`${styles.input} input`}
-              name="myGmail"
-              type="text"
-              id="gmail"
+              id="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              className={`${styles.input} ${
+                errors.email ? styles.errorInput : ""
+              }`}
             />
+            {errors.email && <p className={styles.errorText}>{errors.email}</p>}
           </div>
-          <div className={styles.wrapper}>
-            <label className={`${styles.label} label`} htmlFor="password">
+
+          <div className={styles.inputWrapper}>
+            <label className={styles.label} htmlFor="password">
               Password
+              <span>8+ characters, at least 1 letter and 1 number*</span>
             </label>
             <input
-              className={`${styles.input} input`}
-              name="myPass"
-              type="password"
               id="password"
+              type="password"
+              value={formData.password}
+              onChange={handleChange}
+              className={`${styles.input} ${
+                errors.password ? styles.errorInput : ""
+              }`}
             />
+            {errors.password && (
+              <p className={styles.errorText}>{errors.password}</p>
+            )}
           </div>
-          <button className={styles.submitBtn} type="submit">
-            submit
-          </button>
-          <button className={styles.submitBtn} type="reset">
-            reset
-          </button>
+
+          <div className={styles.inputWrapper}>
+            <label className={styles.label} htmlFor="repeatPassword">
+              Repeat Password
+            </label>
+            <input
+              id="repeatPassword"
+              type="password"
+              value={formData.repeatPassword}
+              onChange={handleChange}
+              className={`${styles.input} ${
+                errors.repeatPassword ? styles.errorInput : ""
+              }`}
+            />
+            {errors.repeatPassword && (
+              <p className={styles.errorText}>{errors.repeatPassword}</p>
+            )}
+          </div>
         </form>
-        <button className={styles.submitBtn} onClick={onSwitch}>
-          SignIn.
+
+        <button
+          className={styles.guestBtn}
+          type="button"
+          onClick={handleSubmitReg}
+        >
+          Continue
         </button>
+
+        <p className={styles.bottomText}>
+          Already have an account? <span>Log in</span>
+        </p>
       </div>
-    </>
+    </div>
   );
 };
 

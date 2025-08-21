@@ -1,4 +1,4 @@
-@use "reset.scss";
+@use "./reset.scss";
 
 :root {
   --dark-color: #23242c;
@@ -32,14 +32,9 @@ body {
   color: var(--white-color);
 }
 
-.input {
-  font-size: 18px;
-  font-weight: 400;
+input {
+  position: relative;
+  border: 1px solid #e1e1e1;
   border-radius: 8px;
-  line-height: 1.3em;
-  border: none;
-  width: 100%;
-  padding: 10px 15px;
-  color: var(--white-color);
-  background-color: var(--inp-bg);
+  padding: 12px;
 }

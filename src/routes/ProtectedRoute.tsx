@@ -3,13 +3,14 @@ import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
 
 const ProtectedRoute = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, role } = useAuth();
   const navigate = useNavigate();
+
+  console.log("isLoggedIn ", isLoggedIn, role);
 
   useEffect(() => {
     if (!isLoggedIn) {
       navigate("/");
-      console.log(isLoggedIn);
     }
   }, [isLoggedIn, navigate]);
 
