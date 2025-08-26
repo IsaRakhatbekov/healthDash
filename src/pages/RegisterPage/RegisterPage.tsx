@@ -1,51 +1,23 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { registerSchema } from "./validation";
 import styles from "./RegisterPage.module.scss";
 
-const RegisterPage = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    repeatPassword: "",
+type RoleProps = {
+  role: string;
+};
+
+const RegisterPage: React.FC<RoleProps> = ({ role }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(registerSchema), // схема yup
   });
 
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
-  };
-
-  const handleSubmitReg = () => {
-    let newErrors: { [key: string]: string } = {};
-
-    if (!formData.email) {
-      newErrors.email = "Введите email";
-    }
-
-    if (!formData.password) {
-      newErrors.password = "Введите пароль";
-    }
-
-    if (!formData.repeatPassword) {
-      newErrors.repeatPassword = "Повторите пароль";
-    }
-
-    if (
-      formData.password &&
-      formData.repeatPassword &&
-      formData.password !== formData.repeatPassword
-    ) {
-      newErrors.repeatPassword = "Пароли не совпадают";
-    }
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
-      console.log("Регистрация с данными:", formData);
-    }
+  const onSubmit = (data: any) => {
+    console.log("Регистрация с данными:", data);
   };
 
   return (
@@ -53,9 +25,10 @@ const RegisterPage = () => {
       <div className={styles.inner}>
         <h1 className={styles.title}>Create your account</h1>
         <p className={styles.subTitle}>
-          Role selected: <span>Patient</span> / <span>Parent</span>
+          Role selected: <span>{role}</span>
         </p>
-        <form className={styles.regisForm}>
+
+        <form className={styles.regisForm} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.inputWrapper}>
             <label className={styles.label} htmlFor="email">
               Email <span>We’ll send a verification code to this email*</span>
@@ -63,13 +36,14 @@ const RegisterPage = () => {
             <input
               id="email"
               type="email"
-              value={formData.email}
-              onChange={handleChange}
+              {...register("email")}
               className={`${styles.input} ${
                 errors.email ? styles.errorInput : ""
               }`}
             />
-            {errors.email && <p className={styles.errorText}>{errors.email}</p>}
+            {errors.email && (
+              <p className={styles.errorText}>{errors.email.message}</p>
+            )}
           </div>
 
           <div className={styles.inputWrapper}>
@@ -80,14 +54,13 @@ const RegisterPage = () => {
             <input
               id="password"
               type="password"
-              value={formData.password}
-              onChange={handleChange}
+              {...register("password")}
               className={`${styles.input} ${
                 errors.password ? styles.errorInput : ""
               }`}
             />
             {errors.password && (
-              <p className={styles.errorText}>{errors.password}</p>
+              <p className={styles.errorText}>{errors.password.message}</p>
             )}
           </div>
 
@@ -98,29 +71,22 @@ const RegisterPage = () => {
             <input
               id="repeatPassword"
               type="password"
-              value={formData.repeatPassword}
-              onChange={handleChange}
+              {...register("repeatPassword")}
               className={`${styles.input} ${
                 errors.repeatPassword ? styles.errorInput : ""
               }`}
             />
             {errors.repeatPassword && (
-              <p className={styles.errorText}>{errors.repeatPassword}</p>
+              <p className={styles.errorText}>
+                {errors.repeatPassword.message}
+              </p>
             )}
           </div>
+
+          <button className={styles.guestBtn} type="submit">
+            Continue
+          </button>
         </form>
-
-        <button
-          className={styles.guestBtn}
-          type="button"
-          onClick={handleSubmitReg}
-        >
-          Continue
-        </button>
-
-        <p className={styles.bottomText}>
-          Already have an account? <span>Log in</span>
-        </p>
       </div>
     </div>
   );

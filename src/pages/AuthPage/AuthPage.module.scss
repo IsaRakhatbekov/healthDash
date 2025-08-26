@@ -104,4 +104,56 @@
     line-height: 100%;
     color: #787878;
   }
+
+  .methodWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 385px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #787878;
+      z-index: 0;
+    }
+  }
+
+  .methodTitle {
+    position: relative;
+    text-align: center;
+    padding: 0 15px;
+    width: fit-content;
+    background-color: #fff;
+    z-index: 2;
+    margin: 45px auto;
+  }
+
+  .method {
+    width: 100%;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e1e1e1;
+      border-radius: 10px;
+      padding: 6px;
+      width: 56px;
+      height: 56px;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+
+      &:hover {
+        box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
 }
