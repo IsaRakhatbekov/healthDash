@@ -1,0 +1,44 @@
+.stepOne {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  .blocks {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .label {
+    display: block;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: flex-start;
+    border-radius: 8px;
+    transition: all 0.3s;
+
+    & span {
+      margin-left: 10px;
+    }
+
+    &:hover {
+      background-color: #eeeeee;
+    }
+
+    &:active {
+      background-color: #d3d2d2;
+    }
+  }
+
+  .pregnancy {
+    .pregnancyInner {
+      gap: 10px;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

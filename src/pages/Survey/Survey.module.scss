@@ -1,0 +1,79 @@
+.survey {
+  height: 100vh;
+  background-color: #c8c8c8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px;
+  }
+
+  .leftSide {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .leftSideTitle {
+      margin-bottom: 20px;
+    }
+
+    .leftSideSubtitle {
+      margin-bottom: 50px;
+    }
+
+    .surveyBtn {
+      padding: 15px 20px;
+      width: 100%;
+      max-width: 350px;
+      color: #fff;
+      background-color: #646464;
+      border-radius: 8px;
+    }
+  }
+
+  .rightSide {
+    padding: 30px 60px;
+    height: 100%;
+    width: 50%;
+    display: grid;
+    grid-template-rows: 90% 10%; /* первая строка 80%, вторая 20% */
+    grid-template-columns: 1fr; /* одна колонка */
+    height: 100vh; /* контейнер занимает всю высоту экрана */
+  }
+
+  .buttonSWrapper {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & button {
+      padding: 12px;
+      border-radius: 8px;
+      width: 50%;
+      color: #646464;
+      background-color: #fff;
+    }
+
+    .nextStepBtn {
+      color: #fff;
+      background-color: #646464;
+    }
+  }
+}

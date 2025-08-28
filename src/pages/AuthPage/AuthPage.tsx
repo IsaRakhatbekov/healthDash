@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import styles from "./AuthPage.module.scss";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import LoginPage from "../LoginPage/LoginPage";
+import Language from "../../components/Language/Language";
 
 // Анимации для списка и элементов
 const listVariants = {
@@ -67,7 +68,7 @@ const AuthPage = () => {
               "Rehub Logo"
             )}
           </div>
-          <div className={styles.languageWrapper}>English</div>
+          <Language />
         </div>
 
         <AnimatePresence mode="wait">

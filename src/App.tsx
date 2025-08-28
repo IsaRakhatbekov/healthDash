@@ -8,6 +8,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import GeneralHealth from "./pages/GeneralHealth/GeneralHealth.tsx";
 import RegisterPage from "./pages/RegisterPage/RegisterPage.tsx";
 import VerifyPage from "./pages/VerifyPage/VerifyPage.tsx";
+import Survey from "./pages/Survey/Survey.tsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<AuthPage />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="regis" element={<RegisterPage />} />
+          <Route path="survey" element={<Survey />} />
           {/* import VerifyPage from "./pages/VerifyPage/VerifyPage"; // ... */}
           <Route path="/verify" element={<VerifyPage />} />
         </Routes>

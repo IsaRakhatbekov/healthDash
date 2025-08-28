@@ -1,0 +1,17 @@
+.languageWrapper {
+  & button {
+    padding-right: 30px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      right: 0;
+      width: 20px;
+      height: 10px;
+      background: url("../../../public/icons/arrow-down.svg") no-repeat
+        center/cover;
+    }
+  }
+}

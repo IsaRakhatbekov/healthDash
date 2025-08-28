@@ -1,0 +1,60 @@
+.progressBar {
+  .lineWrapper {
+    position: relative;
+    width: 580px;
+    height: 8px;
+    background: #e1e1e1; // серый фон линии
+    border-radius: 4px;
+    margin-bottom: 40px; // место для цифр
+  }
+
+  .innerLine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #646464;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    z-index: 1; // линия ниже кружков
+  }
+
+  .number {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%); // чтобы центр совпадал с линией
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e1e1e1; // фон кружка перекроет линию
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #333;
+    z-index: 2; // кружки выше линии
+  }
+
+  // Позиции кружков (5 штук)
+  .number:nth-child(2) {
+    left: 0%;
+  }
+  .number:nth-child(3) {
+    left: 25%;
+  }
+  .number:nth-child(4) {
+    left: 50%;
+  }
+  .number:nth-child(5) {
+    left: 75%;
+  }
+  .number:nth-child(6) {
+    left: 100%;
+  }
+
+  // Активный шаг
+  .number.active {
+    background: #646464;
+    color: #fff;
+  }
+}
