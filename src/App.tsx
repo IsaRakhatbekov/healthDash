@@ -9,6 +9,7 @@ import GeneralHealth from "./pages/GeneralHealth/GeneralHealth.tsx";
 import RegisterPage from "./pages/RegisterPage/RegisterPage.tsx";
 import VerifyPage from "./pages/VerifyPage/VerifyPage.tsx";
 import Survey from "./pages/Survey/Survey.tsx";
+import PatientPage from "./pages/PatientPage/PatientPage.tsx";
 
 function App() {
   return (
@@ -16,11 +17,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<ProtectedRoute />}>
-            <Route element={<Layout />}>
-              <Route path="/dashboard" element={<DashboardPage />} />
-              <Route path="/generalHealth" element={<GeneralHealth />} />2
-            </Route>
+            <Route element={<Layout />}></Route>
           </Route>
+          <Route path="/patientPage" element={<PatientPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/generalHealth" element={<GeneralHealth />} />2
           {/* вне layout — например, страница логина и регистрации */}
           <Route path="/" element={<AuthPage />} />
           <Route path="*" element={<NotFoundPage />} />

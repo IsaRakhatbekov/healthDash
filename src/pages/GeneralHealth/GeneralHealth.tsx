@@ -11,7 +11,6 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import Calendar from "../../components/Сalendar/Calendar";
 
 const GeneralHealth = () => {
   const [healthData, setHealthData] = useState<any>(null);
@@ -48,7 +47,6 @@ const GeneralHealth = () => {
 
   return (
     <div className={styles.generalHealth}>
-      <Calendar />
       {loading ? (
         <Loader />
       ) : (

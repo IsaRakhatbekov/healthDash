@@ -1,0 +1,48 @@
+.patientPage {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "aside main";
+  grid-template-columns: 315px 1fr; // aside фикс ширина, main растягивается
+  grid-template-rows: auto 1fr; // header по контенту, нижний ряд занимает всё остальное
+  height: 100vh; // фиксируем всю высоту
+  background-color: #fff;
+  overflow: hidden; // убираем общий скролл
+
+  .header {
+    grid-area: header;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .aside {
+    grid-area: aside;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    overflow-y: auto; // можно тоже отдельно прокручивать aside, если нужно
+  }
+
+  .main {
+    grid-area: main;
+    padding: 20px;
+    overflow-y: auto; // только main скроллится
+    min-height: 0; // важно, чтобы grid "сжимал" по высоте
+  }
+
+  .mainTitle {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .patientPage {
+    grid-template-areas:
+      "header"
+      "aside"
+      "main";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+  }
+}
