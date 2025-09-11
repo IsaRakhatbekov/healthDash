@@ -1,0 +1,129 @@
+.doctorCalendar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+
+  .topBtnWrapper {
+    border-radius: 8px;
+    border: 1px solid #969696;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .btnInPerson,
+  .btnVideoVisit {
+    width: 50%;
+    padding: 5px;
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    color: #000;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .activeTopBtn {
+    background: #969696;
+  }
+
+  .bookBtn {
+    width: 100%;
+    border: 1px solid #646464;
+    border-radius: 8px;
+    padding: 12px 0px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: #fff;
+    background: #646464;
+  }
+
+  .calendarInner {
+    display: flex;
+  }
+
+  .head {
+    min-height: 222px;
+  }
+
+  .daysGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); // 7 равных колонок
+    gap: 8px;
+    flex: 1; // растягиваем на всю ширину
+    margin-bottom: 20px;
+  }
+
+  .date,
+  .weekDay {
+    text-align: center;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 117%;
+    color: #1e1e1e;
+  }
+
+  .prevBtn,
+  .nextBtn {
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:active {
+      & svg {
+        & rect {
+          fill: #fff7f7;
+        }
+      }
+    }
+  }
+
+  .slotOpen,
+  .slotBooked {
+    border-radius: 4px;
+    padding: 6px 14px;
+    width: 56px;
+    height: 24px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 100%;
+    color: #fff;
+    background: #969696;
+  }
+
+  .noSlots {
+    width: 56px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slotBooked {
+    background-color: red;
+  }
+
+  /* сетка из 7 колонок — по одному столбцу на день */
+  .slotsGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+
+  /* внутри каждой колонки слоты идут сверху вниз */
+  .slotColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+}

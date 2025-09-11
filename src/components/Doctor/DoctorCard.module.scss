@@ -1,4 +1,7 @@
 .doctorCardWrapper {
+  gap: 50px;
+  display: flex;
+  justify-content: space-between;
   border-radius: 10px;
   padding: 25px;
   width: 100%;
@@ -6,9 +9,12 @@
   background: #f5f5f5;
   margin-bottom: 25px;
 
+  .doctorScheduleWrapper {
+    width: 50%;
+  }
+
   .doctorCard {
-    width: 100%;
-    max-width: 460px;
+    width: 50%;
 
     .top {
       gap: 20px;

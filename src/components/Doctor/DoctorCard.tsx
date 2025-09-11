@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import styles from "./DoctorCard.module.scss";
 import type { Doctor } from "../../shared/types/doctor";
+import DoctorCalendar from "../DoctorCalendar/DoctorCalendar";
 
 const DoctorCard: FC<{ doctor: Doctor }> = ({ doctor }) => {
   return (
@@ -65,7 +66,9 @@ const DoctorCard: FC<{ doctor: Doctor }> = ({ doctor }) => {
         </div>
         <button className={styles.cardBtn}>View Profile</button>
       </div>
-      <div className={styles.doctorScheduleWrapper}></div>
+      <div className={styles.doctorScheduleWrapper}>
+        <DoctorCalendar />
+      </div>
     </div>
   );
 };
