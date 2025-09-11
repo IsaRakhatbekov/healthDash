@@ -4,6 +4,7 @@ import PatientHeader from "../../components/PatientHeader/PatientHeader";
 import type { Doctor } from "../../shared/types/doctor";
 import styles from "./PatientPage.module.scss";
 import { fetchDoctors } from "../../shared/api/doctors";
+import AsideFilters from "../../components/AsideFilters/AsideFilters";
 
 const PatientPage = () => {
   const [doctors, setDoctors] = useState<Doctor[]>([]);
@@ -19,7 +20,9 @@ const PatientPage = () => {
       <div className={styles.header}>
         <PatientHeader />
       </div>
-      <div className={styles.aside}>aside</div>
+      <div className={styles.aside}>
+        <AsideFilters />
+      </div>
       <div className={styles.main}>
         <h2 className={styles.mainTitle}>Top Specialists for You</h2>
         {doctors.map((doc) => (

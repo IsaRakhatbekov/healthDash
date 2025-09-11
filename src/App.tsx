@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import { AuthProvider } from "./context/AuthContext";
-import Layout from "./components/Layout/Layout";
 import AuthPage from "./pages/AuthPage/AuthPage";
 import ProtectedRoute from "./routes/ProtectedRoute.tsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
@@ -16,9 +15,7 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route element={<ProtectedRoute />}>
-            <Route element={<Layout />}></Route>
-          </Route>
+          <Route element={<ProtectedRoute />}></Route>
           <Route path="/patientPage" element={<PatientPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/generalHealth" element={<GeneralHealth />} />2

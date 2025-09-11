@@ -43,6 +43,10 @@
     line-height: 125%;
     color: #fff;
     background: #646464;
+
+    &:active {
+      background-color: #c2c2c2;
+    }
   }
 
   .calendarInner {

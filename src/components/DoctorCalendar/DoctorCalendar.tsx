@@ -14,17 +14,10 @@ const DoctorCalendar = () => {
     "inPerson" | "videoCall"
   >("inPerson");
   const days = availability ? availability.days : [];
-  const slots = days.map((el) => el.slots);
-  const weeksDay = days.map((el) => el.weekday);
   const options: Intl.DateTimeFormatOptions = {
     month: "short",
     day: "numeric",
   };
-  const formattedDates = days.map((el) => {
-    const dateObj = new Date(el.date);
-    console.log(dateObj);
-    return dateObj.toLocaleDateString("en-US", options);
-  });
 
   const visibleDays = days.slice(startIndex, startIndex + 7);
 
