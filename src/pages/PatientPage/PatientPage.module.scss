@@ -33,6 +33,30 @@
     margin-bottom: 20px;
     font-size: 30px;
   }
+
+  .LoadMoreBtn {
+    cursor: pointer;
+    padding: 7px 15px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 143%;
+    color: #646464;
+    border: 0.5px solid #c8c8c8;
+    border-radius: 10px;
+    padding: 7px 15px;
+    display: block; // кнопка займёт строку
+    margin: 20px auto;
+    transition: all 0.3s;
+
+    &:hover {
+      box-shadow: 2px 3px 5px #646464;
+    }
+
+    &:active {
+      color: #fff;
+      background-color: #ccc;
+    }
+  }
 }
 
 /* Адаптивность */

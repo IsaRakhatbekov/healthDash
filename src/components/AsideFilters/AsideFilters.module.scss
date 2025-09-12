@@ -3,4 +3,20 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px 0 200px 0;
+
+  .inputsWrapper {
+    & h4 {
+      margin-bottom: 15px;
+    }
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .inputWrapper {
+    margin-bottom: 15px;
+  }
+
+  & input {
+    padding: 5px 15px;
+  }
 }
