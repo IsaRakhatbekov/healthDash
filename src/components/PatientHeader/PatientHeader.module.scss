@@ -59,4 +59,27 @@
     align-items: center;
     justify-content: center;
   }
+
+  .inpurWrapper {
+    position: relative;
+  }
+
+  .searchIcon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .searchInput {
+    border: 1px solid #646464;
+    border-radius: 12px;
+
+    width: 330px;
+    padding: 10px 10px 10px 44px;
+  }
 }

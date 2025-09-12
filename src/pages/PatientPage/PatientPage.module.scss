@@ -34,6 +34,18 @@
     font-size: 30px;
   }
 
+  .matchWraapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .matchInner {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+  }
+
   .LoadMoreBtn {
     cursor: pointer;
     padding: 7px 15px;
