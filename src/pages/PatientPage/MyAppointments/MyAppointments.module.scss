@@ -4,54 +4,63 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-  }
 
-  .subtitle {
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 1.3em;
-    color: #646464;
-  }
+    .subtitle {
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 1.3em;
+      color: #646464;
+    }
 
-  .headerBtnWRapper {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
+    .headerBtnWRapper {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
-  .btn {
-    padding: 15px 25px;
-    border: 1px solid #646464;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.3em;
-  }
+    .btn {
+      padding: 15px 25px;
+      border: 1px solid #646464;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.3em;
+    }
 
-  .surveyBtn {
-    color: #646464;
-  }
+    .surveyBtn {
+      color: #646464;
+    }
 
-  .bookBtn {
-    gap: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    background: #646464;
-
-    & span {
+    .bookBtn {
+      gap: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 17px;
-      height: 17px;
-      overflow: hidden;
+      color: #fff;
+      background: #646464;
 
-      & svg {
-        width: 16px;
-        height: 16px;
+      & span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 17px;
+        height: 17px;
+        overflow: hidden;
+
+        & svg {
+          width: 16px;
+          height: 16px;
+        }
       }
     }
+  }
+
+  .tableWrapper {
+    background-color: #ccc;
+    width: 100%;
+    max-width: 1800px;
+    max-height: 500px; // ограничиваем высоту
+    overflow-y: auto; // вертикальный скролл
+    overflow-x: auto; // горизонтальный, если нужно
   }
 }

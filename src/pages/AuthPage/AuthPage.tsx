@@ -4,6 +4,7 @@ import styles from "./AuthPage.module.scss";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import LoginPage from "../LoginPage/LoginPage";
 import Language from "../../components/Language/Language";
+import { useNavigate } from "react-router-dom";
 
 // Анимации для списка и элементов
 const listVariants = {
@@ -43,6 +44,8 @@ const AuthPage = () => {
     localStorage.removeItem("selectedRole");
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className={styles.authPage}>
       <div className={styles.wrapper}>
@@ -68,6 +71,12 @@ const AuthPage = () => {
               "Rehub Logo"
             )}
           </div>
+          <button
+            className={styles.patientPageBtn}
+            onClick={() => navigate("/patientPage")}
+          >
+            patient Page
+          </button>
           <Language />
         </div>
 

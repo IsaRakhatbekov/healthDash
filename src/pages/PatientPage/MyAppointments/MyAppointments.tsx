@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./MyAppointments.module.scss";
+import AppointmentsTable from "../../../components/AppointmentsTable/AppointmentsTable";
 
 const MyAppointments = () => {
   const navigate = useNavigate();
@@ -43,8 +44,7 @@ const MyAppointments = () => {
       </div>
 
       <div className={styles.tableWrapper}>
-        <div className={styles.tableHeader}></div>
-        <div className={styles.tableBody}></div>
+        <AppointmentsTable />
       </div>
     </div>
   );
