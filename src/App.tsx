@@ -9,6 +9,8 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage.tsx";
 import VerifyPage from "./pages/VerifyPage/VerifyPage.tsx";
 import Survey from "./pages/Survey/Survey.tsx";
 import PatientPage from "./pages/PatientPage/PatientPage.tsx";
+import DoctorsList from "./components/DoctorsList/DoctorsList.tsx";
+import MyAppointments from "./pages/PatientPage/MyAppointments/MyAppointments.tsx";
 
 function App() {
   return (
@@ -16,14 +18,19 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<ProtectedRoute />}></Route>
+          <Route path="/patientPage" element={<PatientPage />}>
+            <Route index element={<DoctorsList />} />
+            <Route path="myAppointments" element={<MyAppointments />} />
+            {/* <Route path="profile" element={<Profile />} /> */}
+          </Route>
           <Route path="/patientPage" element={<PatientPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/generalHealth" element={<GeneralHealth />} />2
           {/* вне layout — например, страница логина и регистрации */}
           <Route path="/" element={<AuthPage />} />
           <Route path="*" element={<NotFoundPage />} />
-          <Route path="regis" element={<RegisterPage />} />
-          <Route path="survey" element={<Survey />} />
+          <Route path="/regis" element={<RegisterPage />} />
+          <Route path="/survey" element={<Survey />} />
           {/* import VerifyPage from "./pages/VerifyPage/VerifyPage"; // ... */}
           <Route path="/verify" element={<VerifyPage />} />
         </Routes>

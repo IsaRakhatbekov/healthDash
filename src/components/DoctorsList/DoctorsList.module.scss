@@ -1,0 +1,77 @@
+.mainTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+.matchWraapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.matchInner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inpurWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchInput {
+  width: 200px;
+  padding: 8px 8px 8px 35px; // отступ под иконку
+  border: 1px solid #c8c8c8;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1e293b;
+
+  &::placeholder {
+    color: #94a3b8;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 1px #3b82f6;
+  }
+}
+
+.LoadMoreBtn {
+  cursor: pointer;
+  padding: 7px 15px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 143%;
+  color: #646464;
+  border: 0.5px solid #c8c8c8;
+  border-radius: 10px;
+  display: block; // центрируем по строке
+  margin: 20px auto;
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 2px 3px 5px #646464;
+  }
+
+  &:active {
+    color: #fff;
+    background-color: #ccc;
+  }
+}

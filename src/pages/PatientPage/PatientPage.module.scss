@@ -1,13 +1,8 @@
 .patientPage {
-  display: grid;
-  grid-template-areas:
-    "header header"
-    "aside main";
-  grid-template-columns: 315px 1fr; // aside фикс ширина, main растягивается
-  grid-template-rows: auto 1fr; // header по контенту, нижний ряд занимает всё остальное
-  height: 100vh; // фиксируем всю высоту
+  height: 100vh;
   background-color: #fff;
-  overflow: hidden; // убираем общий скролл
+  overflow: hidden; // общий скролл убираем
+  display: grid;
 
   .header {
     grid-area: header;
@@ -19,66 +14,51 @@
     grid-area: aside;
     padding: 20px;
     border-right: 1px solid #ccc;
-    overflow-y: auto; // можно тоже отдельно прокручивать aside, если нужно
+    overflow-y: auto;
   }
 
   .main {
     grid-area: main;
     padding: 20px;
-    overflow-y: auto; // только main скроллится
-    min-height: 0; // важно, чтобы grid "сжимал" по высоте
-  }
-
-  .mainTitle {
-    margin-bottom: 20px;
-    font-size: 30px;
-  }
-
-  .matchWraapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .matchInner {
-    gap: 10px;
-    display: flex;
-    align-items: center;
-  }
-
-  .LoadMoreBtn {
-    cursor: pointer;
-    padding: 7px 15px;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 143%;
-    color: #646464;
-    border: 0.5px solid #c8c8c8;
-    border-radius: 10px;
-    padding: 7px 15px;
-    display: block; // кнопка займёт строку
-    margin: 20px auto;
-    transition: all 0.3s;
-
-    &:hover {
-      box-shadow: 2px 3px 5px #646464;
-    }
-
-    &:active {
-      color: #fff;
-      background-color: #ccc;
-    }
+    overflow-y: auto;
+    min-height: 0;
   }
 }
 
-/* Адаптивность */
+/* когда aside есть */
+.withAside {
+  grid-template-areas:
+    "header header"
+    "aside main";
+  grid-template-columns: 315px 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+/* когда aside нет */
+.noAside {
+  grid-template-areas:
+    "header"
+    "main";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+/* Адаптив */
 @media (max-width: 768px) {
-  .patientPage {
+  .withAside {
     grid-template-areas:
       "header"
       "aside"
       "main";
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr;
+  }
+
+  .noAside {
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
   }
 }

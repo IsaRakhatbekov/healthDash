@@ -12,18 +12,26 @@
     display: flex;
     gap: 60px;
   }
-
   .link {
     position: relative;
+    text-decoration: none;
+    color: #010101;
 
     &::after {
       content: "";
       height: 2px;
-      width: 100%;
+      width: 0; // по умолчанию линия скрыта
       position: absolute;
       bottom: -5px;
       left: 0;
       background-color: #010101;
+      transition: width 0.3s ease; // плавное появление
+    }
+  }
+
+  .active {
+    &::after {
+      width: 100%; // линия показывается только у активной ссылки
     }
   }
 

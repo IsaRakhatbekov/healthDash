@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./PatientHeader.module.scss";
+import { NavLink } from "react-router-dom";
 
 const PatientHeader = () => {
   return (
@@ -39,30 +40,36 @@ const PatientHeader = () => {
         </a>
         <div className={styles.inner}>
           <ul className={styles.list}>
-            <li className={styles.item}>
-              <Link className={styles.link} to="#">
+            <li>
+              <NavLink
+                to="/patientPage"
+                end
+                className={({ isActive }) =>
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
+                }
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
-            <li className={styles.item}>
-              <Link className={styles.link} to="#">
-                Explore
-              </Link>
-            </li>
-            <li className={styles.item}>
-              <Link className={styles.link} to="#">
-                Chat
-              </Link>
-            </li>
-            <li className={styles.item}>
-              <Link className={styles.link} to="#">
+            <li>
+              <NavLink
+                to="/patientPage/myAppointments"
+                className={({ isActive }) =>
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
+                }
+              >
                 My Appointments
-              </Link>
+              </NavLink>
             </li>
-            <li className={styles.item}>
-              <Link className={styles.link} to="#">
+            <li>
+              <NavLink
+                to="/patientPage/saved"
+                className={({ isActive }) =>
+                  isActive ? `${styles.link} ${styles.active}` : styles.link
+                }
+              >
                 Saved
-              </Link>
+              </NavLink>
             </li>
           </ul>
           <div className={styles.inpurWrapper}>
