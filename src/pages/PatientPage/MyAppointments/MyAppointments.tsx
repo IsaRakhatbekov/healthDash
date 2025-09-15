@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./MyAppointments.module.scss";
 import AppointmentsTable from "../../../components/AppointmentsTable/AppointmentsTable";
+import Select from "react-select";
+import { useState } from "react";
 
 const MyAppointments = () => {
+  const [tabsValue, setTabsValue] = useState<string | null>("");
   const navigate = useNavigate();
+  console.log(tabsValue);
   return (
     <div className={styles.myAppointments}>
       <div className={styles.header}>
@@ -42,7 +46,32 @@ const MyAppointments = () => {
           </button>
         </div>
       </div>
-
+      <div className={styles.wrapper}>
+        <div className={styles.inner}>
+          <div className={styles.tabsWrapper}>
+            <button
+              onClick={() => setTabsValue("upcoming")}
+              className={styles.btn}
+            >
+              Upcoming
+            </button>
+            <button onClick={() => setTabsValue("past")} className={styles.btn}>
+              Past
+            </button>
+            <button
+              onClick={() => setTabsValue("cancelled")}
+              className={styles.btn}
+            >
+              Cancelled
+            </button>
+          </div>
+          <div className={styles.filtersWrapper}>
+            <Select />
+            <Select />
+          </div>
+        </div>
+        <input type="text" />
+      </div>
       <div className={styles.tableWrapper}>
         <AppointmentsTable />
       </div>

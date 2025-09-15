@@ -55,6 +55,43 @@
     }
   }
 
+  .wrapper {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .inner {
+    gap: 30px;
+    display: flex;
+    align-items: center;
+  }
+
+  .tabsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .btn {
+    padding: 8px 25px;
+    border: 1px solid #969696;
+    border-radius: 6px;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 143%;
+    color: #969696;
+  }
+
+  .filtersWrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
   .tableWrapper {
     background-color: #ccc;
     width: 100%;
