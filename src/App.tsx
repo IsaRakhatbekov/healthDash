@@ -11,6 +11,7 @@ import Survey from "./pages/Survey/Survey.tsx";
 import PatientPage from "./pages/PatientPage/PatientPage.tsx";
 import DoctorsList from "./components/DoctorsList/DoctorsList.tsx";
 import MyAppointments from "./pages/PatientPage/MyAppointments/MyAppointments.tsx";
+import Chat from "./pages/PatientPage/Chat/Chat.tsx";
 
 function App() {
   return (
@@ -22,8 +23,8 @@ function App() {
             <Route index element={<DoctorsList />} />
             <Route path="myAppointments" element={<MyAppointments />} />
             {/* <Route path="profile" element={<Profile />} /> */}
+            <Route path="/patientPage/chat" element={<Chat />} />
           </Route>
-          <Route path="/patientPage" element={<PatientPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/generalHealth" element={<GeneralHealth />} />2
           {/* вне layout — например, страница логина и регистрации */}

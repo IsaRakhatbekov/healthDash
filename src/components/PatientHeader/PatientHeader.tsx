@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styles from "./PatientHeader.module.scss";
 import { NavLink } from "react-router-dom";
 
@@ -63,12 +62,12 @@ const PatientHeader = () => {
             </li>
             <li>
               <NavLink
-                to="/patientPage/saved"
+                to="/patientPage/chat"
                 className={({ isActive }) =>
                   isActive ? `${styles.link} ${styles.active}` : styles.link
                 }
               >
-                Saved
+                Chat
               </NavLink>
             </li>
           </ul>

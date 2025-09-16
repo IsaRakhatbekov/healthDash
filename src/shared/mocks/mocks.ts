@@ -1,5 +1,7 @@
 // shared/mocks/mockData.ts
 
+import type { ChatPreview } from "../types/chat";
+
 export interface AvailabilitySlot {
   time: string;
   startISO: string;
@@ -765,5 +767,80 @@ export const mockAppointments: Appointments[] = [
     receipt: "payment_receipt_30.pdf",
     actions: ["Book Again", "Review"],
     status: "cancelled",
+  },
+];
+
+export const mockChat: ChatPreview[] = [
+  {
+    id: "1",
+    name: "Dr. John Smith, MD",
+    message: "Hello! I’ve reviewed your test results, let’s discuss...",
+    time: "2:00 PM",
+    unreadCount: 2,
+    status: "unread",
+  },
+  {
+    id: "2",
+    name: "Dr. Emily Carter, MD",
+    message: "How have you been feeling since our last session?",
+    time: "1:30 PM",
+    unreadCount: 3,
+    status: "unread",
+  },
+  {
+    id: "3",
+    name: "ClearMind Rehab",
+    message: "Your appointment has been confirmed for Aug...",
+    time: "1:00 PM",
+    unreadCount: 2,
+    status: "unread",
+  },
+  {
+    id: "4",
+    name: "Dr. Sophia Clark, MD",
+    message: "Thank you, I’ll be there on time.",
+    time: "1:00 PM",
+    unreadCount: 0,
+    status: "read",
+  },
+  {
+    id: "5",
+    name: "Hope Recovery Institute",
+    message: "Welcome! We’ve prepared a personalized reha...",
+    time: "12:50 PM",
+    unreadCount: 2,
+    status: "archived",
+  },
+  {
+    id: "6",
+    name: "Dr. Michael Brown, MD",
+    message: "Your recent tests look good, I recommend conti...",
+    time: "12:10 PM",
+    unreadCount: 3,
+    status: "unread",
+  },
+  {
+    id: "7",
+    name: "Dr. Sarah Johnson, MD",
+    message: "You can select a convenient time for your phys...",
+    time: "12:00 PM",
+    unreadCount: 3,
+    status: "unread",
+  },
+  {
+    id: "8",
+    name: "Bright Futures Pediatric Rehab",
+    message: "Please don’t forget to complete the patient int...",
+    time: "11:45 AM",
+    unreadCount: 2,
+    status: "unread",
+  },
+  {
+    id: "9",
+    name: "Balance Wellness Clinic",
+    message: "We’ve updated your treatment plan. Please lo...",
+    time: "11:40 AM",
+    unreadCount: 2,
+    status: "unread",
   },
 ];

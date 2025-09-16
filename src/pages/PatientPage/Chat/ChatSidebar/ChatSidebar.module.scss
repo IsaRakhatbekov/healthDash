@@ -1,0 +1,115 @@
+.chatSidebar {
+  max-width: 370px;
+  height: 100%;
+  padding: 20px;
+  display: flex; // добавляем flex
+  flex-direction: column; // вертикальное направление
+  background-color: #fff;
+
+  // Остальные стили без изменений
+  .head,
+  .searchInput,
+  .tabsWrapper {
+    flex-shrink: 0; // предотвращаем сжатие этих элементов
+  }
+
+  .tabsWrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  .tabsBtn {
+    width: 33.333%;
+    padding: 8px 0;
+    border-bottom: 2px solid #fff;
+    transition: all 0.3s;
+  }
+
+  .tabsBtnActive {
+    border-bottom: 2px solid #c8c8c8;
+  }
+
+  .msgWrapper {
+    width: 330px;
+    flex: 1; // занимает все доступное пространство
+    overflow-y: auto; // добавляем скролл
+    min-height: 0; // важно для правильной работы flex + overflow
+  }
+
+  .msg {
+    border: 1px solid #c8c8c8;
+    border-radius: 8px;
+    width: 330px;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: left;
+    margin-bottom: 10px; // добавляем отступ между сообщениями
+
+    .msgTop {
+      position: relative;
+      gap: 10px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 7px;
+    }
+
+    .msgImgWrapper {
+      width: 24px;
+      height: 24px;
+      border-radius: 100%;
+      background-color: #ccc;
+      overflow: hidden;
+      flex-shrink: 0; // предотвращаем сжатие изображения
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .msgName {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.3em;
+      color: #323232;
+
+      // Обрезаем длинные имена
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1; // занимает доступное пространство
+      min-width: 0; // важно для работы ellipsis в flex-контейнере
+    }
+
+    .msgTime {
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 1.3em;
+      color: #646464;
+      white-space: nowrap;
+      margin-left: auto; // прижимаем время к правому краю
+      padding-left: 10px; // отступ от текста
+      flex-shrink: 0; // предотвращаем сжатие времени
+    }
+
+    .msgText {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 1.3em;
+      color: #646464;
+
+      // Обрезаем длинный текст с многоточием
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      // Добавляем отступ справа, чтобы текст не прилипал к краю
+      padding-right: 10px;
+      margin-right: 10px;
+    }
+  }
+}
