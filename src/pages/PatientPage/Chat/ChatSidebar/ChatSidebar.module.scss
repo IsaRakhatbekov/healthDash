@@ -1,7 +1,7 @@
 .chatSidebar {
   max-width: 370px;
   height: 100%;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   display: flex; // добавляем flex
   flex-direction: column; // вертикальное направление
   background-color: #fff;
@@ -53,8 +53,8 @@
   .msgWrapper {
     width: 330px;
     flex: 1; // занимает все доступное пространство
-    overflow-y: auto; // добавляем скролл
     min-height: 0; // важно для правильной работы flex + overflow
+    overflow-y: auto; // добавляем скролл
   }
 
   .msg {

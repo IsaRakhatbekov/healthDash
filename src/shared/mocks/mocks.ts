@@ -1,6 +1,6 @@
 // shared/mocks/mockData.ts
 
-import type { ChatPreview } from "../types/chat";
+import type { ChatType } from "../types/chat";
 
 export interface AvailabilitySlot {
   time: string;
@@ -770,7 +770,7 @@ export const mockAppointments: Appointments[] = [
   },
 ];
 
-export const mockChat: ChatPreview[] = [
+export const mockChat: ChatType[] = [
   {
     id: "1",
     name: "Dr. John Smith, MD",
@@ -778,6 +778,19 @@ export const mockChat: ChatPreview[] = [
     time: "2:00 PM",
     unreadCount: 2,
     status: "unread",
+    messages: [
+      {
+        sender: "them",
+        text: "Hello! I’ve reviewed your test results, let’s discuss...",
+        time: "2:00 PM",
+      },
+      { sender: "me", text: "Okay doctor, I’ll be ready.", time: "2:05 PM" },
+      {
+        sender: "them",
+        text: "Great. Let’s schedule another check-up in 2 weeks.",
+        time: "2:06 PM",
+      },
+    ],
   },
   {
     id: "2",
@@ -786,6 +799,23 @@ export const mockChat: ChatPreview[] = [
     time: "1:30 PM",
     unreadCount: 3,
     status: "unread",
+    messages: [
+      {
+        sender: "them",
+        text: "How have you been feeling since our last session?",
+        time: "1:30 PM",
+      },
+      {
+        sender: "me",
+        text: "Better, thank you! I’m sleeping well now.",
+        time: "1:32 PM",
+      },
+      {
+        sender: "them",
+        text: "That’s great news, keep following the plan.",
+        time: "1:34 PM",
+      },
+    ],
   },
   {
     id: "3",
@@ -794,6 +824,14 @@ export const mockChat: ChatPreview[] = [
     time: "1:00 PM",
     unreadCount: 2,
     status: "unread",
+    messages: [
+      {
+        sender: "them",
+        text: "Your appointment has been confirmed for August 15.",
+        time: "1:00 PM",
+      },
+      { sender: "me", text: "Perfect, thank you!", time: "1:05 PM" },
+    ],
   },
   {
     id: "4",
@@ -802,6 +840,14 @@ export const mockChat: ChatPreview[] = [
     time: "1:00 PM",
     unreadCount: 0,
     status: "read",
+    messages: [
+      { sender: "me", text: "See you tomorrow at 3 PM.", time: "12:55 PM" },
+      {
+        sender: "them",
+        text: "Thank you, I’ll be there on time.",
+        time: "1:00 PM",
+      },
+    ],
   },
   {
     id: "5",
@@ -810,6 +856,14 @@ export const mockChat: ChatPreview[] = [
     time: "12:50 PM",
     unreadCount: 2,
     status: "archived",
+    messages: [
+      {
+        sender: "them",
+        text: "Welcome! We’ve prepared a personalized rehab program.",
+        time: "12:50 PM",
+      },
+      { sender: "me", text: "Thanks, I’ll review it today.", time: "12:55 PM" },
+    ],
   },
   {
     id: "6",
@@ -818,6 +872,14 @@ export const mockChat: ChatPreview[] = [
     time: "12:10 PM",
     unreadCount: 3,
     status: "unread",
+    messages: [
+      {
+        sender: "them",
+        text: "Your recent tests look good, I recommend continuing the treatment.",
+        time: "12:10 PM",
+      },
+      { sender: "me", text: "Got it, thank you doctor!", time: "12:15 PM" },
+    ],
   },
   {
     id: "7",
@@ -826,6 +888,18 @@ export const mockChat: ChatPreview[] = [
     time: "12:00 PM",
     unreadCount: 3,
     status: "unread",
+    messages: [
+      {
+        sender: "them",
+        text: "You can select a convenient time for your physical therapy.",
+        time: "12:00 PM",
+      },
+      {
+        sender: "me",
+        text: "I’ll check the available slots today.",
+        time: "12:05 PM",
+      },
+    ],
   },
   {
     id: "8",
@@ -834,6 +908,14 @@ export const mockChat: ChatPreview[] = [
     time: "11:45 AM",
     unreadCount: 2,
     status: "unread",
+    messages: [
+      {
+        sender: "them",
+        text: "Please don’t forget to complete the patient intake form.",
+        time: "11:45 AM",
+      },
+      { sender: "me", text: "I’ll do it this afternoon.", time: "11:50 AM" },
+    ],
   },
   {
     id: "9",
@@ -842,5 +924,13 @@ export const mockChat: ChatPreview[] = [
     time: "11:40 AM",
     unreadCount: 2,
     status: "unread",
+    messages: [
+      {
+        sender: "them",
+        text: "We’ve updated your treatment plan. Please log in to review.",
+        time: "11:40 AM",
+      },
+      { sender: "me", text: "Thanks, I’ll check it out.", time: "11:42 AM" },
+    ],
   },
 ];

@@ -8,3 +8,14 @@ export interface ChatPreview {
   unreadCount: number;
   status: string;
 }
+
+export interface Message {
+  sender: "me" | "them";
+  text: string;
+  time: string;
+}
+
+export interface ChatType extends ChatPreview {
+  status: "unread" | "read" | "archived";
+  messages: Message[];
+}

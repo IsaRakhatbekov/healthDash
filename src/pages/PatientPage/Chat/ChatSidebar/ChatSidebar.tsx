@@ -2,8 +2,13 @@ import { useEffect, useState } from "react";
 import { mockChat } from "../../../../shared/mocks/mocks";
 import styles from "./ChatSidebar.module.scss";
 import Loader from "../../../../components/Loader/Loader";
+import type { ChatType } from "../../../../shared/types/chat";
 
-const ChatSidebar = () => {
+interface ChatSidebarProps {
+  onSelectChat: (chat: ChatType) => void;
+}
+
+const ChatSidebar = ({ onSelectChat }: ChatSidebarProps) => {
   const [chatValue, setChatValue] = useState<string>("all");
   const [unreadedMsg, setUnreadedMsg] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
@@ -74,7 +79,11 @@ const ChatSidebar = () => {
           <Loader />
         ) : (
           filteredChat().map((el) => (
-            <button key={el.id} className={styles.msg}>
+            <button
+              key={el.id}
+              className={styles.msg}
+              onClick={() => onSelectChat(el)}
+            >
               <div className={styles.msgTop}>
                 <div className={styles.msgImgWrapper}>
                   <img src="#" alt="#" />
